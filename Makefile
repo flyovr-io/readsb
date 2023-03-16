@@ -1,5 +1,5 @@
 PROGNAME=readsb
-READSB_VERSION=adsbfi-readsb-1.003456
+READSB_VERSION := "$(shell echo -n `cat version`; echo -n ' adsbfi: ' || echo -n ' compiled on '`date +%y%m%d` )"
 
 RTLSDR ?= no
 BLADERF ?= no
