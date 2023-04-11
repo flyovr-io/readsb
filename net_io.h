@@ -145,6 +145,7 @@ struct client
 // Client connection
 struct net_connector
 {
+    char *connect_string;
     char *address;
     char *address0;
     char *address1;
@@ -223,7 +224,7 @@ typedef union __packed {
 
 void netUseMessage(struct modesMessage *mm);
 void netDrainMessageBuffers();
-struct modesMessage *netGetMM();
+struct modesMessage *netGetMM(struct messageBuffer *buf);
 
 
 #endif
