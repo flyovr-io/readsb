@@ -12,27 +12,19 @@ see the LICENSE file for details
 
 ## how to install / build
 
-I'd recommend this script to automatically install it:
-- https://github.com/wiedehopf/adsb-scripts/wiki/Automatic-installation-for-readsb
-
-Or build the package yourself:
+Build the package yourself:
 ```
 sudo apt update
 sudo apt install --no-install-recommends --no-install-suggests -y \
     git build-essential debhelper libusb-1.0-0-dev \
     librtlsdr-dev librtlsdr0 pkg-config \
     libncurses-dev zlib1g-dev zlib1g libzstd-dev libzstd1
-git clone --depth 20 https://github.com/wiedehopf/readsb.git
+git clone --depth 20 https://github.com/adsbfi/readsb.git
 cd readsb
 export DEB_BUILD_OPTIONS=noddebs
 dpkg-buildpackage -b -Prtlsdr -ui -uc -us
 sudo dpkg -i ../readsb_*.deb
 ```
-
-Or check here for more build instructions and other useful stuff:
-- https://github.com/wiedehopf/adsb-wiki/wiki/Building-readsb-from-source
-- https://github.com/wiedehopf/adsb-wiki/wiki/Raspbian-Lite:-ADS-B-receiver
-
 ### aircraft.json format:
 
 [json file Readme](README-json.md)
@@ -90,55 +82,6 @@ The difference of using -Ofast or -O3 over the default of -O2 is likely very min
 ## Configuration
 
 If required, edit `/etc/default/readsb` to set the service options, device type, network ports etc.
-
-## rtl-sdr bias tee
-
-Use this utility independen of readsb:
-https://github.com/wiedehopf/adsb-wiki/wiki/RTL-Bias-Tee
-
-## Global map of aircraft
-
-One of this forks main uses is to be the backend for the global map at https://adsbexchange.com/
-For that purpose it's used in conjunction with tar1090 with some extra options to cope with the number of aircraft and also record a history of flight paths: https://github.com/wiedehopf/tar1090#0800-destroy-sd-card
-
-## --debug=S: speed check debugging output
-
-For current reference please see the speed_check function.
-
-hex
-
-SQ means same quality (ADS-B vs MLAT and stuff)
-LQ means lower quality
-
-fail / ok
-ok means speed check passed (displayed only with cpr-focus)
-
-A means airborne and S means surface.
-
-reliable is my reliable counter
-every good position increases each aircrafts position reliability
-if it gets to zero, speed check is no longer applied and it's allowed to "JUMP"
-"JUMP" is also allowed if we haven't had a position for 2 minutes
-
-tD is the trackDifference
-170 or 180 means the new position goes in the opposite direction of the ground track broadcast by the aircraft.
-
-then we have actual distance / allowed distance.
-the allowed distance i tweak depending on the trackDifference
-high trackDifference makes the allowed distance go slightly negative
-as i don't want aircraft to jump backwards.
-
-elapsed time
-
-actual / allowed speed (allowed speed based on allowed distance)
-
-old --> new
-lat, lon -> lat, lon
-
-oh if you want that display:
---debug=S
-you'll have to update, just disabled the MLAT speed check from displayign stuff ... because usually it's not interesting
-
 
 ## readsb --help
 
