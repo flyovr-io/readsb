@@ -1,8 +1,6 @@
-# Readsb
+# Readsb (adsb.fi fork)
 
-This is a detached fork of https://github.com/Mictronics/readsb
-
-It's continually under development, expect bugs, segfaults and all the good stuff :)
+This is an in-progress detached fork of https://github.com/wiedehopf/readsb
 
 ## NO WARRANTY
 
