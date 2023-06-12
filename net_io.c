@@ -339,7 +339,7 @@ static int sendUUID(struct client *c, int64_t now) {
     char uuid[150];
     uuid[0] = '\0';
     if ((c->sendq && c->sendq_len + 256 < c->sendq_max) && con
-            && (con->enable_uuid_ping || (strstr(con->address, "feed") || Modes.debug_ping || Modes.debug_send_uuid))) {
+            && (con->enable_uuid_ping || (strstr(con->address, "feed")) || Modes.debug_ping || Modes.debug_send_uuid)) {
 
         int res = -1;
 
