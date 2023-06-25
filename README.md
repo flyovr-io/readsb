@@ -1,6 +1,6 @@
 # Readsb (adsb.fi fork)
 
-This is an in-progress detached fork of https://github.com/wiedehopf/readsb
+This is a fork of https://github.com/wiedehopf/readsb
 
 ## NO WARRANTY
 
