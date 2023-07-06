@@ -1,4 +1,4 @@
-# Readsb (adsb.fi fork)
+# Readsb (flyovr.io fork)
 
 This is a fork of https://github.com/wiedehopf/readsb
 
