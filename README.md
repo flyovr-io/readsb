@@ -17,7 +17,7 @@ sudo apt install --no-install-recommends --no-install-suggests -y \
     git build-essential debhelper libusb-1.0-0-dev \
     librtlsdr-dev librtlsdr0 pkg-config \
     libncurses-dev zlib1g-dev zlib1g libzstd-dev libzstd1
-git clone --depth 20 https://github.com/adsbfi/readsb.git
+git clone --depth 20 https://github.com/flyovr-io/readsb.git
 cd readsb
 export DEB_BUILD_OPTIONS=noddebs
 dpkg-buildpackage -b -Prtlsdr -ui -uc -us
